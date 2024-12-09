@@ -34,8 +34,8 @@ t_articles AS (
     FROM t_unique
     GROUP BY viewer_id,
         view_date
-    HAVING COUNT(article_id) > 1
 )
 SELECT DISTINCT viewer_id
 FROM t_articles
+WHERE article_views > 1
 ORDER BY viewer_id ASC
